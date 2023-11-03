@@ -30,7 +30,8 @@ public class LoginPagePage {
        return this;
 
    }
-   public  String getSuccessMessage() {
-       return Selenide.$(By.cssSelector(".flash.success")).getText();
-   }
+
+    public static String getResultText() {
+       return Selenide.$(By.cssSelector(".subheader")).getText();
+    }
 }
