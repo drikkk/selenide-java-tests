@@ -11,8 +11,8 @@ public class ShoppingPage implements IPageObject {
 
 
     @Override
-    public static String getUrl() {
-        return "/";
+    public String getUrl() {
+        return "";
     }
     public ShoppingPage fillUsername(String username) {
         $(By.name("user-name")).setValue(username);
@@ -85,9 +85,9 @@ public class ShoppingPage implements IPageObject {
 
 
 
-    public ShoppingPage fillPostalCode() {
+    /*public ShoppingPage fillPostalCode() {
     }
 
     public ShoppingPage fillFirstName() {
-    }
+    }*/
 }

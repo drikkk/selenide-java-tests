@@ -12,34 +12,33 @@ public class SAUCEDEMOTEST extends BaseTest {
         var shoppingPage = new ShoppingPage();
         var username = "standard_user";
         var password = "secret_sauce";
-        var firstname = "FirstName";
-
         var firstName = "FirstName";
         var lastName = "LastName";
         var postalCode = "12345";
         double expectedPrice, actualPrice;
 
-    visit(ShoppingPage.getUrl());
-    ShoppingPage
+    visit(shoppingPage.getUrl());
+
+    shoppingPage
             .fillUsername(username)
             .fillPassword(password)
             .clickLogin();
 
     expectedPrice = shoppingPage.addCheapestItemToCart();
 
-    visit(ShoppingPage.getUrl());
+    visit(shoppingPage.getUrl());
+
+    shoppingPage
             .goToCheckOut()
             .validateCart()
-            .fillFirstName()
+            .fillFirstName(firstName)
             .fillLastName(lastName)
-            .fillPostalCode()
+            .fillPostalCode(postalCode)
             .proceedToPurchase();
 
     actualPrice = shoppingPage.confirmPurchase(expectedPrice);
-        Assert.assertEquals(expectedPrice, actualPrice);
 
-    }
+    Assert.assertEquals(expectedPrice, actualPrice);
 
-    private ShoppingPage goToCheckOut() {
     }
 }
